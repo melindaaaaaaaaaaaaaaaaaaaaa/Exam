@@ -1,13 +1,8 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+  font-family: Arial;
 }
 
-h1 {
-  margin-bottom: 20px;
-}
-
-.container {
+.main {
   display: flex;
   gap: 20px;
 }
@@ -15,29 +10,15 @@ h1 {
 .panel {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-
-textarea {
-  width: 200px;
-  height: 150px;
-  font-family: monospace;
-  font-size: 12px;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: column;
   gap: 5px;
 }
 
-button {
-  padding: 5px;
-  cursor: pointer;
+textarea {
+  width: 150px;
+  height: 120px;
+  font-size: 10px;
 }
 
 canvas {
-  border: 1px solid #ccc;
-  width: 300px;
-  height: 300px;
+  border: 1px solid black;
 }
