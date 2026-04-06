@@ -1,4 +1,4 @@
-let h = [], w, E, D, O, y, q;
+let h = [], w, E, D, O, y;
 let k = [], W;
 let b, v, H, S, U, N, R, P;
 
@@ -29,6 +29,9 @@ function parse(text, key, type="string") {
 function draw(canvasId, grid) {
   let c = document.getElementById(canvasId);
   let ctx = c.getContext("2d");
+
+  c.width = c.clientWidth;
+  c.height = c.clientHeight;
 
   let rows = grid.length;
   let cols = grid[0].length;
@@ -195,7 +198,7 @@ YMAX ${w}`;
 
 });
 
-// shortcut refs
+// refs
 const params1 = document.getElementById("params-1");
 const params2 = document.getElementById("params-2");
 const params3 = document.getElementById("params-3");
