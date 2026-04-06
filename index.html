@@ -1,36 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Mockup Heatmap</title>
+  <title>mockup-t5 v0.1</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>mockup-t5 v0.1</h1>
 
-<div class="container">
+<!-- ROW ATAS -->
+<div class="row">
 
   <!-- PANEL 1 -->
-  <div class="panel">
-    <textarea id="params"></textarea>
+  <div class="panel-row">
+
+    <textarea id="params1"></textarea>
 
     <div class="buttons">
-      <button onclick="generateParams()">data-1</button>
-      <button onclick="readParams()">read-1</button>
-      <button onclick="generateGrid()">exec-1</button>
+      <button onclick="data1()">data-1</button>
+      <button onclick="read1()">read-1</button>
+      <button onclick="exec1()">exec-1</button>
     </div>
 
     <textarea id="grid"></textarea>
+
   </div>
 
   <!-- PANEL 2 -->
-  <div class="panel">
+  <div class="panel-row">
+
+    <textarea id="params2"></textarea>
+
     <div class="buttons">
-      <button onclick="drawHeatmap()">exec-2</button>
+      <button onclick="data2()">data-2</button>
+      <button onclick="read2()">read-2</button>
+      <button onclick="exec2()">exec-2</button>
     </div>
 
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas2" width="240" height="240"></canvas>
+
+  </div>
+
+</div>
+
+<!-- ROW BAWAH -->
+<div class="row">
+
+  <!-- PANEL 3 -->
+  <div class="panel-row">
+
+    <textarea id="params3"></textarea>
+
+    <div class="buttons">
+      <button onclick="data3()">data-3</button>
+      <button onclick="read3()">read-3</button>
+      <button onclick="exec3()">exec-3</button>
+    </div>
+
+    <canvas id="canvas3" width="240" height="240"></canvas>
+
   </div>
 
 </div>
