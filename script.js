@@ -1,72 +1,108 @@
+let grid = [];
 let rows, cols, umin, umax, unum;
-let gridData = [];
+let colors = [];
 
-function generateParams() {
-  const text = `COLS 10
-ROWS 10
+// PANEL 1
+function data1() {
+  document.getElementById("params1").value =
+`COLS 9
+ROWS 11
 UMIN 0.20
-UMAX 0.80
-UNUM 10`;
-
-  document.getElementById("params").value = text;
+UMAX 0.70
+UNUM 11`;
 }
 
-function readParams() {
-  const text = document.getElementById("params").value.split("\n");
+function read1() {
+  const lines = document.getElementById("params1").value.split("\n");
 
-  text.forEach(line => {
-    const [key, value] = line.split(" ");
-
-    if (key === "ROWS") rows = parseInt(value);
-    if (key === "COLS") cols = parseInt(value);
-    if (key === "UMIN") umin = parseFloat(value);
-    if (key === "UMAX") umax = parseFloat(value);
-    if (key === "UNUM") unum = parseInt(value);
+  lines.forEach(l => {
+    let [k,v] = l.split(" ");
+    if(k=="ROWS") rows = +v;
+    if(k=="COLS") cols = +v;
+    if(k=="UMIN") umin = +v;
+    if(k=="UMAX") umax = +v;
+    if(k=="UNUM") unum = +v;
   });
 }
 
-function generateGrid() {
-  gridData = [];
-  let output = "";
+function exec1() {
+  grid = [];
+  let txt = "";
+  let step = (umax-umin)/(unum-1);
 
-  const step = (umax - umin) / (unum - 1);
-
-  for (let i = 0; i < rows; i++) {
-    let row = [];
-    for (let j = 0; j < cols; j++) {
-      const idx = Math.floor(Math.random() * unum);
-      const val = umin + idx * step;
-      row.push(idx);
-
-      output += val.toFixed(2);
-      if (j < cols - 1) output += ";";
+  for(let i=0;i<rows;i++){
+    let row=[];
+    for(let j=0;j<cols;j++){
+      let r = Math.floor(Math.random()*unum);
+      row.push(r);
+      txt += (umin + r*step).toFixed(2);
+      if(j<cols-1) txt+=";";
     }
-    gridData.push(row);
-    output += "\n";
+    txt+="\n";
+    grid.push(row);
   }
 
-  document.getElementById("grid").value = output;
+  document.getElementById("grid").value = txt;
 }
 
-function drawHeatmap() {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
+// PANEL 2
+function data2(){
+  let txt = "CNUM "+unum+"\n";
+  for(let i=0;i<unum;i++){
+    txt += "CL"+String(i).padStart(2,"0")+" #"+(5+i)+"22\n";
+  }
+  document.getElementById("params2").value = txt;
+}
 
-  const width = canvas.width;
-  const height = canvas.height;
+function read2(){
+  let lines = document.getElementById("params2").value.split("\n");
+  colors = [];
 
-  const cellW = width / cols;
-  const cellH = height / rows;
-
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < cols; j++) {
-      const value = gridData[i][j];
-
-      // warna gradasi merah
-      const intensity = Math.floor(255 * (value / unum));
-      ctx.fillStyle = `rgb(${intensity},0,0)`;
-
-      ctx.fillRect(j * cellW, i * cellH, cellW, cellH);
+  lines.forEach(l=>{
+    if(l.startsWith("CL")){
+      colors.push(l.split(" ")[1]);
     }
+  });
+}
+
+function exec2(){
+  draw("canvas2", grid);
+}
+
+// PANEL 3
+function data3(){
+  document.getElementById("params3").value =
+`XMIN 0
+YMIN 0
+XMAX ${cols}
+YMAX ${rows}`;
+}
+
+function read3(){}
+
+function exec3(){
+  draw("canvas3", grid, true);
+}
+
+// DRAW
+function draw(id, g, highlight=false){
+  let c = document.getElementById(id);
+  let ctx = c.getContext("2d");
+
+  let cell = c.width / cols;
+
+  for(let i=0;i<rows;i++){
+    for(let j=0;j<cols;j++){
+      ctx.fillStyle = colors[g[i][j]] || "#000";
+      ctx.fillRect(j*cell,i*cell,cell,cell);
+    }
+  }
+
+  if(highlight){
+    ctx.fillStyle="lime";
+    ctx.fillRect(2*cell,2*cell,cell,cell);
+
+    ctx.fillStyle="blue";
+    ctx.fillRect(5*cell,5*cell,cell,cell);
   }
 }
