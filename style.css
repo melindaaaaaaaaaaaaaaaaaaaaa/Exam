@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* layout utama */
+/* GRID LAYOUT (biar posisi sama kayak asli) */
 .wrapper {
   display: grid;
   grid-template-columns: 340px 340px;
@@ -37,9 +37,9 @@ body {
   box-sizing: border-box;
 }
 
-/* textarea kiri */
+/* kiri (params) */
 textarea {
-  width: 110px;
+  flex: 0 0 90px;
   height: 100%;
   font-size: 10px;
   font-family: monospace;
@@ -59,9 +59,9 @@ textarea {
   font-size: 11px;
 }
 
-/* kanan (PENTING FIX DI SINI) */
+/* kanan (grid / canvas) */
 canvas, #grid {
-  width: 180px;   /* ⬅️ BATASIN */
+  flex: 1;
   height: 100%;
   border: 1px solid #aaa;
 }
