@@ -61,7 +61,6 @@ function highlight(canvasId, x, y, color) {
 document.addEventListener("click", (e) => {
   let id = e.target.id;
 
-  // wipe-1
   if (id === "wipe-1") {
     params1.value = "";
     grid.value = "";
@@ -76,7 +75,6 @@ document.addEventListener("click", (e) => {
     clearCanvas("map-3");
   }
 
-  // data-1
   if (id === "data-1") {
     params1.value =
 `COLS 9
@@ -88,7 +86,6 @@ SEPC ;`;
     enable("read-1", true);
   }
 
-  // read-1
   if (id === "read-1") {
     let txt = params1.value;
     w = parse(txt,"ROWS","int");
@@ -102,7 +99,6 @@ SEPC ;`;
     enable("data-3", true);
   }
 
-  // exec-1
   if (id === "exec-1") {
     let step = (O-D)/(y-1);
     h = [];
@@ -122,7 +118,6 @@ SEPC ;`;
     grid.value = text;
   }
 
-  // PANEL 2
   if (id === "wipe-2") {
     params2.value="";
     clearCanvas("map-2");
@@ -155,7 +150,6 @@ SEPC ;`;
     draw("map-2", h);
   }
 
-  // PANEL 3
   if (id === "wipe-3") {
     params3.value="";
     clearCanvas("map-3");
