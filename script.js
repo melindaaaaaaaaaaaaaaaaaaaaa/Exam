@@ -5,8 +5,8 @@ let colors = [];
 // ================= PANEL 1 =================
 function wipe1(){
   params1.value = "";
+  document.getElementById("grid").value = "";
   grid = [];
-  grid.value = "";
 }
 
 function data1(){
@@ -20,6 +20,7 @@ UNUM 11`;
 
 function read1(){
   let lines = params1.value.split("\n");
+
   lines.forEach(l=>{
     let [k,v] = l.split(" ");
     if(k==="ROWS") rows = +v;
@@ -40,6 +41,7 @@ function exec1(){
     for(let j=0;j<cols;j++){
       let r = Math.floor(Math.random()*unum);
       row.push(r);
+
       txt += (umin + r*step).toFixed(2);
       if(j<cols-1) txt+=";";
     }
@@ -58,12 +60,14 @@ function wipe2(){
 }
 
 function data2(){
-  let txt = "CNUM "+unum+"\n";
   let base = ["522","622","722","822","922","a22","b22","c22","d22","e22","f22"];
 
-  for(let i=0;i<unum;i++){
+  let txt = "CNUM "+base.length+"\n";
+
+  for(let i=0;i<base.length;i++){
     txt += "CL"+String(i).padStart(2,"0")+" #"+base[i]+"\n";
   }
+
   params2.value = txt;
 }
 
@@ -107,14 +111,17 @@ function draw(id, highlight=false){
   let c = document.getElementById(id);
   let ctx = c.getContext("2d");
 
-  let cell = Math.min(c.width/cols, c.height/rows);
+  let cellW = c.width / cols;
+  let cellH = c.height / rows;
+  let cell = Math.min(cellW, cellH);
 
   for(let i=0;i<rows;i++){
     for(let j=0;j<cols;j++){
+
       ctx.fillStyle = colors[grid[i][j]] || "#000";
       ctx.fillRect(j*cell,i*cell,cell,cell);
 
-      ctx.strokeStyle="#222";
+      ctx.strokeStyle = "#333";
       ctx.strokeRect(j*cell,i*cell,cell,cell);
     }
   }
@@ -122,17 +129,19 @@ function draw(id, highlight=false){
   if(highlight){
     let x1 = Math.floor(Math.random()*cols);
     let y1 = Math.floor(Math.random()*rows);
+
     let x2 = Math.floor(Math.random()*cols);
     let y2 = Math.floor(Math.random()*rows);
 
-    ctx.fillStyle="lime";
+    ctx.fillStyle="#8f8";
     ctx.fillRect(x1*cell,y1*cell,cell,cell);
 
-    ctx.fillStyle="blue";
+    ctx.fillStyle="#88f";
     ctx.fillRect(x2*cell,y2*cell,cell,cell);
   }
 }
 
+// ================= CLEAR =================
 function clearCanvas(id){
   let c = document.getElementById(id);
   let ctx = c.getContext("2d");
