@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mockup Heatmap</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>mockup-t5 v0.1</h1>
+
+<div class="container">
+
+  <!-- PANEL 1 -->
+  <div class="panel">
+    <textarea id="params"></textarea>
+
+    <div class="buttons">
+      <button onclick="generateParams()">data-1</button>
+      <button onclick="readParams()">read-1</button>
+      <button onclick="generateGrid()">exec-1</button>
+    </div>
+
+    <textarea id="grid"></textarea>
+  </div>
+
+  <!-- PANEL 2 -->
+  <div class="panel">
+    <div class="buttons">
+      <button onclick="drawHeatmap()">exec-2</button>
+    </div>
+
+    <canvas id="canvas"></canvas>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

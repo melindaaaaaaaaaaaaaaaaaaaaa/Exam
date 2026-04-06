@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+/* layout utama */
+.row {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+/* panel bawah lebih nempel */
+.row-bottom {
+  margin-top: -5px;
+}
+
+/* isi panel */
+.panel-row {
+  display: flex;
+  gap: 5px;
+}
+
+/* textarea */
+textarea {
+  width: 120px;
+  height: 120px;
+  font-size: 10px;
+  font-family: monospace;
+}
+
+/* tombol */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+button {
+  width: 70px;
+  padding: 3px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* canvas */
+canvas {
+  border: 1px solid #999;
+}
