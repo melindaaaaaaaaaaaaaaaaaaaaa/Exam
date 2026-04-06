@@ -1,48 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mockup T5</title>
+  <meta charset="UTF-8">
+  <title>mockup-t5 v0.1</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>mockup-t5 v0.1</h1>
 
-<div class="main">
+<!-- ROW 1 -->
+<div class="row">
 
   <!-- PANEL 1 -->
-  <div class="panel">
+  <div class="panel-row">
     <textarea id="params1"></textarea>
 
-    <button onclick="data1()">data-1</button>
-    <button onclick="read1()">read-1</button>
-    <button onclick="exec1()">exec-1</button>
+    <div class="buttons">
+      <button onclick="wipe1()">wipe-1</button>
+      <button onclick="data1()">data-1</button>
+      <button onclick="read1()">read-1</button>
+      <button onclick="exec1()">exec-1</button>
+    </div>
 
     <textarea id="grid"></textarea>
   </div>
 
   <!-- PANEL 2 -->
-  <div class="panel">
+  <div class="panel-row">
     <textarea id="params2"></textarea>
 
-    <button onclick="data2()">data-2</button>
-    <button onclick="read2()">read-2</button>
-    <button onclick="exec2()">exec-2</button>
+    <div class="buttons">
+      <button onclick="wipe2()">wipe-2</button>
+      <button onclick="data2()">data-2</button>
+      <button onclick="read2()">read-2</button>
+      <button onclick="exec2()">exec-2</button>
+    </div>
 
-    <canvas id="canvas2" width="250" height="250"></canvas>
+    <canvas id="canvas2" width="260" height="260"></canvas>
   </div>
 
 </div>
 
-<div class="panel">
+<!-- ROW 2 -->
+<div class="row">
+
   <!-- PANEL 3 -->
-  <textarea id="params3"></textarea>
+  <div class="panel-row">
+    <textarea id="params3"></textarea>
 
-  <button onclick="data3()">data-3</button>
-  <button onclick="read3()">read-3</button>
-  <button onclick="exec3()">exec-3</button>
+    <div class="buttons">
+      <button onclick="wipe3()">wipe-3</button>
+      <button onclick="data3()">data-3</button>
+      <button onclick="read3()">read-3</button>
+      <button onclick="exec3()">exec-3</button>
+    </div>
 
-  <canvas id="canvas3" width="250" height="250"></canvas>
+    <canvas id="canvas3" width="260" height="260"></canvas>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
