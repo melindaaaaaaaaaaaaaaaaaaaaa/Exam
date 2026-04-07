@@ -2,7 +2,6 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* GRID LAYOUT (biar posisi sama kayak asli) */
 .wrapper {
   display: grid;
   grid-template-columns: 340px 340px;
